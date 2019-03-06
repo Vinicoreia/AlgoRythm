@@ -11,3 +11,4 @@ So this repo will:
  
 ### Bibliography
  - I'll use Cormen's famous Introduction to Algorithms book when coding.
+ - I'm also using Skiena's The Algorithm Design Manual.

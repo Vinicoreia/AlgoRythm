@@ -1,3 +1,6 @@
+#This takes O(n) time
+
+
 n = int(input())
 
 def good_fib(n:int)->int:

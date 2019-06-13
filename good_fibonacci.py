@@ -5,9 +5,9 @@ n = int(input())
 
 def good_fib(n:int)->int:
     if(n<=1):
-        return (n,0)
+        return (0, n)
     else:
-        (a,b) = good_fib(n-1)
-        return (a+b, a)
+        (b,a) = good_fib(n-1)
+        return (a, a+b)
 
 print(good_fib(n))

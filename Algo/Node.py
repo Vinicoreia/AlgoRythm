@@ -21,10 +21,31 @@ def BFS(c):
     while(not Q.empty()):
         p = Q.get()
         print(p.value)
-        if(p.right != None):
-            Q.put(p.right)
         if(p.left != None):
             Q.put(p.left)
+        if(p.right != None):
+            Q.put(p.right)
 
+def PreOrder(c):
+    if(c == None):
+        return
+    else:
+        print(c.value)
+        PreOrder(c.left)
+        PreOrder(c.right)
 
-BFS(a)
+def PostOrder(c):
+    if(c==None):
+        return
+    else:
+        PostOrder(c.left)
+        PostOrder(c.right)
+        print(c.value)
+
+def InOrder(c):
+    if(c==None):
+        return
+    else:
+        InOrder(c.left)
+        print(c.value)
+        InOrder(c.right)

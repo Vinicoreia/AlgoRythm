@@ -49,3 +49,5 @@ def InOrder(c):
         InOrder(c.left)
         print(c.value)
         InOrder(c.right)
+
+print(InOrder(a))

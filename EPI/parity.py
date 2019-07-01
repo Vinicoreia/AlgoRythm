@@ -25,6 +25,12 @@ def parity_and(x: int) -> int:
         x &= (x-1) # unset the lowest set bit
     return result
 
+# The fast_parity uses that the XOR of a group of bits is it's parity knowing that
+# 0 XOR 1 = 1
+# 1 XOR 0 = 1
+# 0 Otherwise
+# We reduce the input by propagating the XOR for every input shifted by a power of 2
+# This algorithm has time complexity O(log(n)) where n is the number of bits x has.
 def fast_parity(x:int) -> int:
     x^= x>>32
     x^= x>>16
@@ -32,6 +38,7 @@ def fast_parity(x:int) -> int:
     x^= x>>4
     x^= x>>2
     x^= x>>1
+    print(x)
     return x & 1
 
 print(fast_parity(a))

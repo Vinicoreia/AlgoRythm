@@ -13,6 +13,18 @@ def bruteForceReverse(x:int) -> int:
         rev = s[::-1]
         return int(rev)
 
-print(bruteForceReverse(10))
-print(bruteForceReverse(105))
-print(bruteForceReverse(-10410))
+
+def smartReverseInt(x:int) -> int:
+    remainder = abs(x)
+    result = 0
+
+    while(remainder):
+        result *=10 
+        result += remainder%10
+        remainder //= 10
+    return result if x>0 else -result
+
+print(smartReverseInt(10))
+print(smartReverseInt(501))
+print(smartReverseInt(105))
+print(smartReverseInt(-132441))

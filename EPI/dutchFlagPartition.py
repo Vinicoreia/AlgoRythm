@@ -16,7 +16,7 @@ from typing import List
 
 def dutchFlagBruteForce(A: List[int], i: int) -> List[int]:
     #Using O(n) time and O(n) space
-    if not A or i > len(A):
+    if not A or i >= len(A):
         return []
     
     pivot = A[i]
@@ -38,7 +38,7 @@ print(dutchFlagBruteForce([0,1,2,0,2,1,1], 1))
 
 def dutchFlagTwoPass(A: List[int], i: int) -> List[int]:
     # This solution trades space for time so it takes O(1) space but O(n²) time complexity
-    if not A or i> len(A):
+    if not A or i>= len(A):
         return []
 
     pivot = A[i]
@@ -61,3 +61,35 @@ def dutchFlagTwoPass(A: List[int], i: int) -> List[int]:
 
 
 print(dutchFlagTwoPass([0,1,2,0,2,1,1], 1))
+
+# There's a better way to do it, with O(n) time complexity and O(1) space complexity
+# The problem with the dutchFlagTwoPass solution is, for every element it checks if there are smaller ahead
+# but we don't need to start from the beginning, we can do this only when the element being checked is less than the pivot
+# so in dutchFlagTwoPass using the array (0,1,2,0,1,1) and the pivot index 1
+# in the first pass we actually start at 0 and check each index trying to find an element that is smaller than 0, but we shouldn't
+# 0 is already smaller than the pivot so we should just go to the next index
+
+# This is an implementation that is O(n) but uses O(1) space
+
+
+def dutchFlagSmart(A: List[int], i: int) -> List[int]:
+    if(not A or i>= len(A)):
+        return []
+
+    pivot = A[i]
+    small_index = 0
+    big_index = len(A)-1
+
+    for j in range(len(A)):
+        if(A[j] < pivot):
+            A[j], A[small_index] = A[small_index], A[j]
+            small_index += 1
+    
+    for j in reversed(range(len(A))):
+        if(A[j]> pivot):
+            A[j], A[big_index] = A[big_index], A[j]
+            big_index -=1
+
+    return A
+
+print(dutchFlagSmart([0,1,2,0,2,1,1], 1))

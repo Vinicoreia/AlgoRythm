@@ -24,9 +24,9 @@ def dutchFlagBruteForce(A: List[int], i: int) -> List[int]:
     equal = []
     after = []
     for j in range(len(A)):
-        if A[j] < pivot:
+        if (A[j] < pivot):
             before.append(A[j])
-        elif A[j] == pivot:
+        elif (A[j] == pivot):
             equal.append(A[j])
         else:
             after.append(A[j])
@@ -35,3 +35,29 @@ def dutchFlagBruteForce(A: List[int], i: int) -> List[int]:
     return before + equal + after
 
 print(dutchFlagBruteForce([0,1,2,0,2,1,1], 1))
+
+def dutchFlagTwoPass(A: List[int], i: int) -> List[int]:
+    # This solution trades space for time so it takes O(1) space but O(n²) time complexity
+    if not A or i> len(A):
+        return []
+
+    pivot = A[i]
+    
+    # The First pass groups elements smaller than the pivot
+    for j in range(len(A)):
+        for k in range(j+1, len(A)):
+            if(A[k] < pivot):
+                A[j], A[k] = A[k], A[j]
+                break
+        
+    # The Second pass groups elements greater than the pivot
+    for j in reversed(range(len(A))):
+        for k in reversed(range(j)):
+            if (A[k] > pivot):
+                A[j], A[k] = A[k], A[j]
+                break
+
+    return A
+
+
+print(dutchFlagTwoPass([0,1,2,0,2,1,1], 1))

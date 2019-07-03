@@ -26,9 +26,7 @@ def buySellOnce_N(A:List[int]) -> int:
     minimum = math.inf
     maxi = -1
     for i in range(len(A)):
-        if(A[i]<minimum):
-            minimum = A[i]
-        if(A[i]-minimum > maxi):
-            maxi = A[i]-minimum
+        minimum = min(minimum, A[i])
+        maxi = max(A[i]-minimum, maxi)
     return maxi
 print(buySellOnce_N([310, 315, 275, 295, 260, 270, 290, 230, 255, 250]))

@@ -17,6 +17,7 @@ def incrementArray(A: List[int]) -> List[int]:
             carry = 1
         else:
             carry = 0
+            break
         
     if(carry == 1 or A[0] == 10):
         A[0] = 1

@@ -1,4 +1,10 @@
 from typing import List
+
+#  This is O(n) time complexity and O(1) space
+# We keep a pointer that increases everytime the elements are different
+# If they are equal only the iterator j increments
+# then when they are different again we change the last element that was a duplicate with a different element present in the array
+# Since we only have to pass the whole array once the time complexity is O(n)
 def removeDuplicates(A:List[int]) -> List[int]:
     if(not A):
         return []

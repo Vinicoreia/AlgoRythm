@@ -17,3 +17,10 @@ def removeDuplicates(A:List[int]) -> List[int]:
     return A[:i]
 
 print(removeDuplicates([1,1,2,3,4,5,5,6,7,7,7,8,8,9]))
+
+# in python we can just return a set as well
+
+def oneLinerRemoveDuplicates(A:List[int]) -> List[int]:
+    return list(set(A))
+
+print(oneLinerRemoveDuplicates([1,1,2,3,4,5,5,6,7,7,7,8,8,9]))

@@ -2,7 +2,7 @@
 Writing main algorithms while listening to music, the commit message is always a song.
 
 ## Why?
-This may sound retarded, and it is, but music is something we fundamentally admire as humans and i know of no human that does not listen to any song.
+Music is something we fundamentally admire as humans and i know of no human that does not listen to any song.
 So this repo will:
 
 - Serve as a backup of my listened songs troughout my going. 

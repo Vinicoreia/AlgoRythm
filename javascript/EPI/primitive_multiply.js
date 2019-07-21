@@ -9,7 +9,7 @@ const multiply = (a, b)=>{
     const sum = (x, y) =>{
         while(y > 0){
             carry = x&y;
-            x = x^y;
+            x ^= y;
             y = carry << 1;
         }
         return x;
@@ -18,8 +18,8 @@ const multiply = (a, b)=>{
     while(a){
         if( a & 1)
             result = sum(result, b);
-        a = a >> 1;
-        b = b << 1;
+        a >>= 1;
+        b <<= 1;
     }
     return result;
 }

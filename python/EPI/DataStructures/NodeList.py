@@ -21,6 +21,26 @@ class List:
         while currentNode:
             print(currentNode.data)
             currentNode = currentNode.nextP
+
+    def length(self):
+        currentNode = self.head
+        count = 0
+        while currentNode:
+            count += 1
+            currentNode = currentNode.nextP
+        return count
+
+    def append(self, value):
+        currentNode = self.head
+        while(currentNode.nextP):
+            currentNode = currentNode.nextP
+        currentNode.nextP = NodeList(value)
+
+
+
 a = List()
 a.listFromArray([1,2,4,5,6])
+a.printValues()
+print(a.length())
+a.append(10)
 a.printValues()

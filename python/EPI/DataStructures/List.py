@@ -1,9 +1,12 @@
-from NodeList import NodeList
+from .NodeList import NodeList
 
 
 class List:
-    def __init__(self, head=None):
-        self.head = NodeList()
+    def __init__(self, nodes=None):
+        if(nodes):
+            self.head = nodes
+        else:
+            self.head = NodeList()
 
     def listFromArray(self, arr):
         newNode = NodeList()

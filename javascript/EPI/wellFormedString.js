@@ -16,7 +16,7 @@ const wellFormedString = (s) =>{
                 return false
         }
     }
-    return true
+    return !pairs
 }
 
-console.log(wellFormedString('(({}))'))
+console.log(wellFormedString('}'))
